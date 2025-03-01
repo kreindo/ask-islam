@@ -16,8 +16,8 @@ export const myProvider = customProvider({
       model: fireworks('accounts/fireworks/models/deepseek-r1'),
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
-    'islamic-knowledge': openai('gpt-4o'),
-    'title-model': openai('gpt-4-turbo'),
+    'islamic-knowledge': openai('gpt-4o-mini'),
+    'title-model': openai('gpt-4o-mini'),
     'artifact-model': openai('gpt-4o-mini'),
   },
   imageModels: {

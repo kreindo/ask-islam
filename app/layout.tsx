@@ -4,6 +4,7 @@ import { Toaster } from 'sonner';
 import { ThemeProvider } from '@/components/theme-provider';
 
 import './globals.css';
+import { SessionProvider } from 'next-auth/react';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://chat.vercel.ai'),
@@ -58,15 +59,17 @@ export default async function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+        <SessionProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
         >
           <Toaster position="top-center" />
-          {children}
-        </ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import type { User } from 'next-auth';
 import { signOut } from 'next-auth/react';
 import { useTheme } from 'next-themes';
+import Link from 'next/link';
 
 import {
   DropdownMenu,
@@ -42,6 +43,11 @@ export function SidebarUserNav({ user }: { user: User }) {
             side="top"
             className="w-[--radix-popper-anchor-width]"
           >
+            <DropdownMenuItem asChild>
+              <Link href="/settings" className="cursor-pointer w-full">
+                Settings
+              </Link>
+            </DropdownMenuItem>
             <DropdownMenuItem
               className="cursor-pointer"
               onSelect={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
