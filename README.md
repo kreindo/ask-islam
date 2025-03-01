@@ -76,7 +76,6 @@ If you have email queries, please reach out to us at [your-email@example.com].
 
 For feature suggestions and bug reports, visit our feedback page at [https://askislam.featurebase.app].
 
-
 ---
 
 **Disclaimer**: This application is designed for educational purposes only. Users should consult qualified Islamic scholars for religious rulings (fatwas) and personal spiritual guidance.
