@@ -73,9 +73,11 @@ export function ModelSelector({
                 <CheckCircleFillIcon />
               </div>
             </DropdownMenuItem>
+            
           );
         })}
       </DropdownMenuContent>
+      
     </DropdownMenu>
   );
 }

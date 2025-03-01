@@ -6,7 +6,7 @@ import {
   wrapLanguageModel,
 } from 'ai';
 
-export const DEFAULT_CHAT_MODEL: string = 'chat-model-small';
+export const DEFAULT_CHAT_MODEL: string = 'islamic-knowledge';
 
 export const myProvider = customProvider({
   languageModels: {
@@ -16,6 +16,7 @@ export const myProvider = customProvider({
       model: fireworks('accounts/fireworks/models/deepseek-r1'),
       middleware: extractReasoningMiddleware({ tagName: 'think' }),
     }),
+    'islamic-knowledge': openai('gpt-4o'),
     'title-model': openai('gpt-4-turbo'),
     'artifact-model': openai('gpt-4o-mini'),
   },
@@ -33,18 +34,23 @@ interface ChatModel {
 
 export const chatModels: Array<ChatModel> = [
   {
-    id: 'chat-model-small',
-    name: 'Small model',
-    description: 'Small model for fast, lightweight tasks',
+    id: 'islamic-knowledge',
+    name: 'Ask Islam',
+    description: 'Islamic knowledge assistant for Quran, Hadith, and Islamic teachings',
   },
-  {
-    id: 'chat-model-large',
-    name: 'Large model',
-    description: 'Large model for complex, multi-step tasks',
-  },
-  {
-    id: 'chat-model-reasoning',
-    name: 'Reasoning model',
-    description: 'Uses advanced reasoning',
-  },
+  // {
+  //   id: 'chat-model-small',
+  //   name: 'Small model',
+  //   description: 'Small model for fast, lightweight tasks',
+  // },
+  // {
+  //   id: 'chat-model-large',
+  //   name: 'Large model',
+  //   description: 'Large model for complex, multi-step tasks',
+  // },
+  // {
+  //   id: 'chat-model-reasoning',
+  //   name: 'Reasoning model',
+  //   description: 'Uses advanced reasoning',
+  // },
 ];

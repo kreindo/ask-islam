@@ -7,8 +7,9 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://chat.vercel.ai'),
-  title: 'Next.js Chatbot Template',
-  description: 'Next.js chatbot template using the AI SDK.',
+  title: 'Ask Islam - Islamic Knowledge Assistant',
+  description: 'Ask questions about Islam, the Quran, Hadith, and Islamic teachings with this AI-powered Islamic knowledge assistant.',
+  keywords: 'Islam, Quran, Hadith, Islamic knowledge, Islamic teachings, Muslim, Islamic assistant',
 };
 
 export const viewport = {
