@@ -22,49 +22,6 @@ Ask Islam is an AI-powered Islamic knowledge assistant built with Next.js and Ve
 - **Database**: [Vercel Postgres](https://vercel.com/storage/postgres)
 - **Hosting**: [Vercel](https://vercel.com/)
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js 18+ and npm/pnpm
-- OpenAI API key
-- Vercel account (for deployment)
-
-### Installation
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/ask-islam.git
-cd ask-islam
-```
-
-2. Install dependencies:
-
-```bash
-npm install
-# or
-pnpm install
-```
-
-3. Create a `.env` file in the root directory with the following variables:
-
-```
-AUTH_SECRET=your-auth-secret
-OPENAI_API_KEY=your-openai-api-key
-POSTGRES_URL=your-postgres-url
-```
-
-4. Run the development server:
-
-```bash
-npm run dev
-# or
-pnpm dev
-```
-
-5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
-
 ## 🧠 How It Works
 
 Ask Islam uses advanced AI models (GPT-4o) with specialized prompt engineering to provide accurate and respectful information about Islamic topics. The system is designed to:
