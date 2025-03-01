@@ -25,6 +25,8 @@ export default function SettingsPage() {
     return (
         <div className="min-h-screen bg-background">
             <header className="flex items-center justify-between p-4 border-b">
+                <div className="flex items-center gap-2 justify-between w-full md:max-w-6xl mx-auto">
+
                 <div className="flex items-center gap-2">
                     <Button variant="ghost" onClick={() => router.push('/')}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
@@ -36,6 +38,7 @@ export default function SettingsPage() {
                 <Button variant="ghost" onClick={() => signOut()}>
                     Sign out
                 </Button>
+                </div>
             </header>
 
             <div className="container mx-auto py-8 px-4 max-w-6xl">
