@@ -240,10 +240,10 @@ export default function SettingsPage() {
                                 <div className="border rounded-lg p-6">
                                     <h2 className="text-xl font-bold mb-4">Attachments</h2>
                                     <div className="space-y-4">
-                                        <p className="text-sm text-muted-foreground">Manage files and documents you've shared with Ask Islam</p>
+                                        <p className="text-sm text-muted-foreground">Manage files and documents you&apos;ve shared with Ask Islam</p>
 
                                         <div className="border p-4 rounded-lg">
-                                            <p className="text-center text-muted-foreground py-8">You haven't uploaded any attachments yet</p>
+                                            <p className="text-center text-muted-foreground py-8">You haven&apos;t uploaded any attachments yet</p>
                                         </div>
 
                                         <Button variant="outline" onClick={() => alert('Upload a file is not available yet')}>Upload a File</Button>
