@@ -72,7 +72,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📞 Contact
 
-If you have any questions or feedback, please reach out to us at [your-email@example.com].
+If you have email queries, please reach out to us at [your-email@example.com].
+
+For feature suggestions and bug reports, visit our feedback page at [https://askislam.featurebase.app].
+
 
 ---
 
