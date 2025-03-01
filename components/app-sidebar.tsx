@@ -34,8 +34,10 @@ export function AppSidebar({ user }: { user: User | undefined }) {
               }}
               className="flex flex-row gap-3 items-center"
             >
-              <span className="text-lg font-semibold px-2 hover:bg-muted rounded-md cursor-pointer">
-                Chatbot
+              <span className="text-lg font-semibold px-2 flex flex-row items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:bg-muted rounded-md cursor-pointer">
+                {/* add font based logo */}
+                <span className="text-1xl font-bold">☪</span>
+                Ask Islam
               </span>
             </Link>
             <Tooltip>
