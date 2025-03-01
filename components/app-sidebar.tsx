@@ -17,6 +17,7 @@ import {
 } from '@/components/ui/sidebar';
 import Link from 'next/link';
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
+import { CogIcon } from 'lucide-react';
 
 export function AppSidebar({ user }: { user: User | undefined }) {
   const router = useRouter();
@@ -63,7 +64,21 @@ export function AppSidebar({ user }: { user: User | undefined }) {
       <SidebarContent>
         <SidebarHistory user={user} />
       </SidebarContent>
-      <SidebarFooter>{user && <SidebarUserNav user={user} />}</SidebarFooter>
+      <SidebarFooter>
+        <div className="flex flex-row justify-between gap-2 items-center">
+          {user && <SidebarUserNav user={user} />}
+          {/* cog icon goes to settings page */}
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="ghost" onClick={() => router.push('/settings')} type="button" className="p-3 h-fit">
+                <CogIcon />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent align="end">Settings</TooltipContent>
+          </Tooltip>
+        </div>
+      </SidebarFooter>
+
     </Sidebar>
   );
 }
