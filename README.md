@@ -1,3 +1,5 @@
+![Ask Islam Banner](https://i.imgur.com/5w5lduQ.jpeg)
+
 # Ask Islam - Islamic Knowledge Assistant
 
 ![Ask Islam](https://img.shields.io/badge/Ask_Islam-Islamic_Knowledge_Assistant-emerald)
