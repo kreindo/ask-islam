@@ -79,3 +79,11 @@ For feature suggestions and bug reports, visit our feedback page at [https://ask
 ---
 
 **Disclaimer**: This application is designed for educational purposes only. Users should consult qualified Islamic scholars for religious rulings (fatwas) and personal spiritual guidance.
+
+
+
+abdan testing the pull req xsxsxsxsx
+
+xsxsxs
+
+xsxsx
