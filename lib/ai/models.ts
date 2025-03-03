@@ -1,12 +1,14 @@
-import { openai } from '@ai-sdk/openai';
-import { fireworks } from '@ai-sdk/fireworks';
+import { openai } from "@ai-sdk/openai";
+import { google } from "@ai-sdk/google";
+
+import { fireworks } from "@ai-sdk/fireworks";
 import {
   customProvider,
   extractReasoningMiddleware,
   wrapLanguageModel,
-} from 'ai';
+} from "ai";
 
-export const DEFAULT_CHAT_MODEL: string = 'islamic-knowledge';
+export const DEFAULT_CHAT_MODEL: string = "islamic-knowledge";
 
 export const myProvider = customProvider({
   languageModels: {
@@ -16,13 +18,16 @@ export const myProvider = customProvider({
     //   model: fireworks('accounts/fireworks/models/deepseek-r1'),
     //   middleware: extractReasoningMiddleware({ tagName: 'think' }),
     // }),
-    'islamic-knowledge': openai('gpt-4o-mini'),
-    'title-model': openai('gpt-4o-mini'),
-    'artifact-model': openai('gpt-4o-mini'),
+    // 'islamic-knowledge': openai('gpt-4o-mini'),
+    // 'title-model': openai('gpt-4o-mini'),
+    // 'artifact-model': openai('gpt-4o-mini'),
+    "islamic-knowledge": google("gemini-1.5-flash") as any, // Note: using gemini-1.5-flash (official model name)
+    "title-model": google("gemini-1.5-flash") as any,
+    "artifact-model": google("gemini-1.5-flash") as any,
   },
   imageModels: {
-    'small-model': openai.image('dall-e-2'),
-    'large-model': openai.image('dall-e-3'),
+    "small-model": openai.image("dall-e-2"),
+    "large-model": openai.image("dall-e-3"),
   },
 });
 
@@ -34,9 +39,10 @@ interface ChatModel {
 
 export const chatModels: Array<ChatModel> = [
   {
-    id: 'islamic-knowledge',
-    name: 'Ask Islam',
-    description: 'Islamic knowledge assistant for Quran, Hadith, and Islamic teachings',
+    id: "islamic-knowledge",
+    name: "Ask Islam",
+    description:
+      "Islamic knowledge assistant for Quran, Hadith, and Islamic teachings",
   },
   // {
   //   id: 'chat-model-small',
