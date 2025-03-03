@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import type { Attachment, Message } from 'ai';
-import { useChat } from 'ai/react';
-import { useState } from 'react';
-import useSWR, { useSWRConfig } from 'swr';
+import type { Attachment, Message } from "ai";
+import { useChat } from "ai/react";
+import { useState } from "react";
+import useSWR, { useSWRConfig } from "swr";
 
-import { ChatHeader } from '@/components/chat-header';
-import type { Vote } from '@/lib/db/schema';
-import { fetcher, generateUUID } from '@/lib/utils';
+import { ChatHeader } from "@/components/chat-header";
+import type { Vote } from "@/lib/db/schema";
+import { fetcher, generateUUID } from "@/lib/utils";
 
-import { Artifact } from './artifact';
-import { MultimodalInput } from './multimodal-input';
-import { Messages } from './messages';
-import { VisibilityType } from './visibility-selector';
-import { useArtifactSelector } from '@/hooks/use-artifact';
-import { toast } from 'sonner';
+import { Artifact } from "./artifact";
+import { MultimodalInput } from "./multimodal-input";
+import { Messages } from "./messages";
+import { VisibilityType } from "./visibility-selector";
+import { useArtifactSelector } from "@/hooks/use-artifact";
+import { toast } from "sonner";
 
 export function Chat({
   id,
@@ -49,20 +49,44 @@ export function Chat({
     sendExtraMessageFields: true,
     generateId: generateUUID,
     onFinish: () => {
-      mutate('/api/history');
+      mutate("/api/history");
     },
     onError: (error) => {
-      toast.error('An error occured, please try again!');
+      toast.error("An error occured, please try again!");
     },
   });
 
   const { data: votes } = useSWR<Array<Vote>>(
     `/api/vote?chatId=${id}`,
-    fetcher,
+    fetcher
   );
 
   const [attachments, setAttachments] = useState<Array<Attachment>>([]);
   const isArtifactVisible = useArtifactSelector((state) => state.isVisible);
+  const [error, setError] = useState<string>("");
+
+  // Custom submit handler to check for daily limits
+  const handleSubmitWithLimitCheck = async (e?: {
+    preventDefault?: () => void;
+  }) => {
+    if (e?.preventDefault) {
+      e.preventDefault();
+    }
+
+    setError(
+      "You've reached your daily limit of 10 messages per day on the free plan. Upgrade to the pro plan to continue."
+    );
+
+    try {
+      await handleSubmit(e);
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("An error occurred. Please try again.");
+      }
+    }
+  };
 
   return (
     <>
@@ -85,13 +109,21 @@ export function Chat({
           isArtifactVisible={isArtifactVisible}
         />
 
+        {error && (
+          <div className="mx-auto w-full md:max-w-3xl px-4">
+            <div className="px-4 py-2 mb-4 text-sm text-red-700 bg-red-100 rounded-lg">
+              {error}
+            </div>
+          </div>
+        )}
+
         <form className="flex mx-auto px-4 bg-background pb-4 md:pb-6 gap-2 w-full md:max-w-3xl">
           {!isReadonly && (
             <MultimodalInput
               chatId={id}
               input={input}
               setInput={setInput}
-              handleSubmit={handleSubmit}
+              handleSubmit={handleSubmitWithLimitCheck}
               isLoading={isLoading}
               stop={stop}
               attachments={attachments}
