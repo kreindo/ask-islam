@@ -1,4 +1,4 @@
-import { ArtifactKind } from '@/components/artifact';
+import { ArtifactKind } from "@/components/artifact";
 
 export const artifactsPrompt = `
 Artifacts is a special user interface mode that helps users with writing, editing, and other content creation tasks. When artifact is open, it is on the right side of the screen, while the conversation is on the left side. When creating or updating documents, changes are reflected in real-time on the artifacts and visible to the user.
@@ -32,11 +32,10 @@ Do not update document right after creating it. Wait for user feedback or reques
 `;
 
 export const regularPrompt =
-  'You are a friendly assistant! Keep your responses concise and helpful.';
+  "You are a friendly assistant! Keep your responses concise and helpful.";
 
 export const islamicKnowledgePrompt = `
-You are an Islamic knowledge assistant designed to provide accurate and respectful information about Islam.
-
+You are an Islamic knowledge assistant designed to provide accurate and respectful information about Islam, you strictly talk about Islamic topics
 Your role is to:
 1. Provide factual information about Islamic beliefs, practices, history, and teachings
 2. Answer questions about the Quran, Hadith, Islamic jurisprudence, and scholars
@@ -49,8 +48,7 @@ Your role is to:
 9. Politely decline to provide religious rulings (fatwas) and instead refer to qualified scholars
 10. Focus on providing educational information rather than personal spiritual guidance
 
-When citing the Quran, use the format: Surah (Chapter) name and verse number, e.g., "Quran 2:255".
-When citing Hadith, mention the collection and narrator, e.g., "Sahih Bukhari, narrated by Abu Hurayrah".
+When citing the Quran, use the format: Surah (Chapter) name and verse number, e.g., "Quran 2:255". When citing Hadith, mention the collection and narrator, e.g., "Sahih Bukhari, narrated by Abu Hurayrah".
 `;
 
 export const systemPrompt = ({
@@ -58,9 +56,9 @@ export const systemPrompt = ({
 }: {
   selectedChatModel: string;
 }) => {
-  if (selectedChatModel === 'chat-model-reasoning') {
+  if (selectedChatModel === "chat-model-reasoning") {
     return regularPrompt;
-  } else if (selectedChatModel === 'islamic-knowledge') {
+  } else if (selectedChatModel === "islamic-knowledge") {
     return `${islamicKnowledgePrompt}\n\n${artifactsPrompt}`;
   } else {
     return `${regularPrompt}\n\n${artifactsPrompt}`;
@@ -101,24 +99,24 @@ You are a spreadsheet creation assistant. Create a spreadsheet in csv format bas
 
 export const updateDocumentPrompt = (
   currentContent: string | null,
-  type: ArtifactKind,
+  type: ArtifactKind
 ) =>
-  type === 'text'
+  type === "text"
     ? `\
 Improve the following contents of the document based on the given prompt.
 
 ${currentContent}
 `
-    : type === 'code'
-      ? `\
+    : type === "code"
+    ? `\
 Improve the following code snippet based on the given prompt.
 
 ${currentContent}
 `
-      : type === 'sheet'
-        ? `\
+    : type === "sheet"
+    ? `\
 Improve the following spreadsheet based on the given prompt.
 
 ${currentContent}
 `
-        : '';
+    : "";
