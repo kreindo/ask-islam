@@ -21,9 +21,9 @@ export const myProvider = customProvider({
     // 'islamic-knowledge': openai('gpt-4o-mini'),
     // 'title-model': openai('gpt-4o-mini'),
     // 'artifact-model': openai('gpt-4o-mini'),
-    "islamic-knowledge": google("gemini-1.5-flash") as any, // Note: using gemini-1.5-flash (official model name)
-    "title-model": google("gemini-1.5-flash") as any,
-    "artifact-model": google("gemini-1.5-flash") as any,
+    "islamic-knowledge": google("gemini-2.0-flash") as any, // Note: using gemini-2.0-flash (official model name)
+    "title-model": google("gemini-2.0-flash") as any,
+    "artifact-model": google("gemini-2.0-flash") as any,
   },
   imageModels: {
     "small-model": openai.image("dall-e-2"),
